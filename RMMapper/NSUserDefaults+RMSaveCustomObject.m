@@ -24,7 +24,7 @@
 -(id)rm_customObjectForKey:(NSString *)key {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSData *encodedObject = [defaults objectForKey:key];
-    id obj = [NSKeyedUnarchiver unarchiveObjectWithData:encodedObject];
+    id obj = encodedObject ? [NSKeyedUnarchiver unarchiveObjectWithData:encodedObject] : nil;
     return obj;
 }
 

@@ -45,7 +45,9 @@
         for (NSString* key in propertyDict) {
             if (!excludedProperties || ![excludedProperties containsObject:key]) {
                 id value = [decoder decodeObjectForKey:key];
-                [self setValue:value forKey:key];
+                if (value) {
+                    [self setValue:value forKey:key];
+                }
             }
         }
     }
